@@ -11,7 +11,6 @@
         <td class="col-md-1" >静态</td>
         <td class="col-md-1" >静态</td>
         <td class="col-md-1">{{item.id}}</td>
-
       </tr> 
     </table>
     </div>
