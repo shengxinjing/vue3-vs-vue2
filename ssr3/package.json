@@ -1,0 +1,17 @@
+{
+  "name": "ssr3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vue/server-renderer": "^3.0.0-beta.14",
+    "express": "^4.17.1",
+    "vue": "^3.0.0-beta.14"
+  }
+}

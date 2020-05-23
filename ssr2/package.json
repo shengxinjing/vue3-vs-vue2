@@ -1,0 +1,22 @@
+{
+  "name": "ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "@vue/runtime-dom": "^3.0.0-beta.14",
+    "@vue/server-renderer": "^3.0.0-beta.14",
+    "vue": "^2.6.11",
+    "vue-server-renderer": "^2.6.11"
+  }
+}

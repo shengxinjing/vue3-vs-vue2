@@ -1,0 +1,16 @@
+{
+  "name": "vue-comp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ssr-gen.js",
+  "dependencies": {
+    "vue-template-compiler": "^2.6.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

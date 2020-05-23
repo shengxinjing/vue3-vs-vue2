@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>vue3 perf</h1>
+      <h1>vue2 perf</h1>
     <h1>{{ items.length }} Components</h1>
     <p>{{ action }} took {{time}}ms.</p>
     <button @click="shuffle">shuffle</button>
@@ -11,14 +11,12 @@
         <td class="col-md-1" >静态</td>
         <td class="col-md-1" >静态</td>
         <td class="col-md-1">{{item.id}}</td>
-
       </tr> 
     </table>
     </div>
 </template>
 
 <script>
-import _ from 'lodash'
 var total = 10000
 var items = []
 for (var i = 0; i < total; i++) {
@@ -28,6 +26,15 @@ for (var i = 0; i < total; i++) {
   })
 }
 let s = window.performance.now()
+function shuffle(array){
+    for(var i = array.length-1; i > 0; i--) {
+         var rnd = Math.floor(Math.random() * (i+1));
+         var tmp = array[i];
+         array[i] = array[rnd];
+         array[rnd] = tmp;
+    }
+    return array
+}
 export default{
     data(){
         return {
@@ -40,21 +47,16 @@ export default{
     },
     mounted(){
         this.time = window.performance.now() - s
-
     },
   methods: {
-
     shuffle(){
       this.action = 'shuffle'
-      this.items = _.shuffle(this.items)
+      this.items = shuffle(this.items)
       let s = window.performance.now()
-
       this.$nextTick(()=>{
         this.time = window.performance.now() - s
       })
     }
-  },
-  components: {
   }
 }
 

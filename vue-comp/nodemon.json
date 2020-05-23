@@ -1,0 +1,4 @@
+{
+    "verbose": true,
+    "ignore": ["ssr2.js","ssr3.js"]
+  }
