@@ -1,24 +1,20 @@
 <template>
     <div>
-      <h1>vue3 perf</h1>
-    <h1>{{ items.length }} Components</h1>
+    <h1>Vue3 {{ items.length }} Components</h1>
     <p>{{ action }} took {{time}}ms.</p>
     <button @click="shuffle">shuffle</button>
-    <table class="table table-hover table-striped test-data">
-
-      <tr v-for="item in items" :key="item.id">
-        <td class="col-md-1" >静态</td>
-        <td class="col-md-1" >静态</td>
-        <td class="col-md-1" >静态</td>
-        <td class="col-md-1">{{item.id}}</td>
-      </tr> 
-    </table>
+    <ul class="col-row" v-for="item in items" :key="item.id">
+      <li class="col-md-1" >kkb</li> 
+      <li class="col-md-1" >kkb</li> 
+      <li class="col-md-1" >kkb</li> 
+      <li class="col-md-1" >{{item.label}}</li> 
+    </ul>
     </div>
 </template>
 
 <script>
-import _ from 'lodash'
-var total = 10000
+import {shuffle} from 'lodash'
+var total = 500
 var items = []
 for (var i = 0; i < total; i++) {
   items.push({
@@ -27,6 +23,7 @@ for (var i = 0; i < total; i++) {
   })
 }
 let s = window.performance.now()
+
 export default{
     data(){
         return {
@@ -34,29 +31,42 @@ export default{
         time: 0,
         action: 'Render',
         items: items,
-        selected: null
+        selected: null,
+        actions:['删除','更新']
         }
     },
     mounted(){
         this.time = window.performance.now() - s
-
     },
   methods: {
-
     shuffle(){
       this.action = 'shuffle'
-      this.items = _.shuffle(this.items)
+      this.items = shuffle(this.items)
       let s = window.performance.now()
-
       this.$nextTick(()=>{
         this.time = window.performance.now() - s
       })
     }
-  },
-  components: {
   }
 }
 
 </script>
+<style>
+.col-md-1{
+  padding:6px 13px;
+  border:1px solid #ddd;
+  flex:1;
+}
+.col-row{
+  display:flex;
+  display: -webkit-flex;
+  list-style: none;
+  margin:0;
+  padding:0
 
+}
+.col-row:nth-child(2n) {
+  background-color: #f8f8f8;
 
+}
+</style>

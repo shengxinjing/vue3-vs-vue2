@@ -1,0 +1,28 @@
+{
+  "name": "vue3.0",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@vue/reactivity": "^3.0.0-beta.12",
+    "@vue/runtime-core": "^3.0.0-beta.12",
+    "@vue/runtime-dom": "^3.0.0-beta.12",
+    "core-js": "^3.6.4",
+    "three": "^0.116.1",
+    "vue": "^3.0.0-beta.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
+    "vue-cli-plugin-vue-next": "^0.1.2",
+    "@vue/compiler-sfc": "^3.0.0-beta.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

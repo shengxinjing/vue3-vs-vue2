@@ -1,14 +1,14 @@
 module.exports ={
     template: `<div>
-    <div v-for="n in 100">
-    <ul>
-      <li  class="app">喝水</li>
-      <li  class="app">喝123</li>
-      <li  class="app">喝123</li>
-      <li  class="app">喝123</li>
-      <li  class="app">喝123</li>
-      <li  class="app">喝123</li>
-      <li class="app" style="color:red" name="kkb"  v-for="todo in todos" >{{todo}}</li>
+    <div v-for="n in 1000">
+    <ul >
+      <li>kkb</li>
+      <li>kkb</li>
+      <li>kkb</li>
+      <li>kkb</li>
+      <li>kkb</li>
+      <li>kkb</li>
+      <li v-for="todo in todos" >{{n}}--{{todo}}</li>
     </ul>
     </div>
     </div>`,
