@@ -24,7 +24,7 @@ Vue3和Vue2细致比较
 
 ## Reactivity  & Fragment
 
-## 奇思妙想   [代码](reactivity)
+ Winter奇思妙想   [代码](reactivity)
 
 ```
 ├── Fragment.vue
@@ -121,7 +121,11 @@ Vue2 render和update   大概50%  稍微有点波动
 
 [官网的对比代码](com)
 
-todo mvc 对比  @todo 需要加点样式 
+todo mvc 对比  
+
+@todo 需要加点样式 
+
+@todo 把storage和http的响应式，放在todomvc里
 
 
 
