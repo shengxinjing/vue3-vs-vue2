@@ -100,7 +100,7 @@ Running 10s test @ http://localhost:9093/
 Requests/sec:    288.21
 Transfer/sec:     40.69MB
 ```
-大概是有2.2倍的提升 真赞
+QPS大概是有2.2倍的提升 真赞
 
 
 ## update 对比
