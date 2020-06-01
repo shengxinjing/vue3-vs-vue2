@@ -8,6 +8,7 @@
 
 let component = {
   components: {
+    
   },
   props: [
     "list"
