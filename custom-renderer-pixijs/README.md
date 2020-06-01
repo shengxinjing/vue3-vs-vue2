@@ -1,37 +1,18 @@
-# 打飞机
+# vue-pixijs
 
-## 启动
+使用 vue3 的语法来开发 pixijs 
 
-1. 先启动服务
+## 实现原理
 
-```shell
-yarn start
-```
+实现了自定义的 vue Renderer ，渲染使用 pixijs 
 
-2. 访问 http://localhost:5000/dist/
 
-## 开发
+## why
 
-```shell
-yarn build --watch
-```
+1. 需求驱动学习 vue3 + pixijs
+2. 以开发小游戏的形式去完善 Renderer
 
-## TODO
 
-- [ ] 地图可滚动
-  - [x] 逻辑实现
-  - [ ] 素材
-- [ ] 开始页面
-- [ ] 结束页面
-- [ ] 战斗
-  - [ ] 敌机
-    - [ ] 从上往下移动
-    - [ ] 移动的方向随机变换
-    - [ ] 可以发射炮弹
-  - [ ] 碰到敌机子弹的话会减少血量
-  - [ ] 血量为零时 game over
-  - [ ] 显示我方飞机的血量
-- [ ] 优化
-  - [x] 飞机移动不流畅
-  - [ ] 刚进战斗时，飞机应该自己飞出来
-- [ ] 抽离所有的参数配置到 options 内
+## 进行中
+1. [打飞机游戏](https://github.com/cuixiaorui/vue-pixijs/tree/master/example/play-plane)
+

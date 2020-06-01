@@ -1,26 +1,39 @@
 {
-  "name": "play-plane",
+  "name": "vue-pixijs",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack",
-    "start": "serve .",
-    "test": "jest"
+  "description": "使用 vue3 的语法来开发 pixijs ",
+  "main": "webpack.config.js",
+  "directories": {
+    "example": "example"
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuixiaorui/vue-pixijs.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue-next",
+    "canvas",
+    "pixijs",
+    "pixi",
+    "game"
+  ],
+  "author": "cuixiaorui",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuixiaorui/vue-pixijs/issues"
+  },
+  "homepage": "https://github.com/cuixiaorui/vue-pixijs#readme",
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "babel-jest": "^26.0.1",
-    "jest": "^26.0.1",
-    "serve": "^11.3.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
+    "@vue/runtime-core": "^3.0.0-beta.14",
     "pixi.js": "^5.2.4"
-  },
-  "description": ""
+  }
 }
