@@ -44,6 +44,7 @@
 
 <script>
 import { reactive, computed, toRefs ,ref} from "vue"
+import useAddRemove from './addRemove'
 import useMousePosition from "./mouse"
 import useScroll from "./scroll"
 import storage from './local'
@@ -51,7 +52,6 @@ export default {
   setup() {
     const { x, y } = useMousePosition();
     const {top} = useScroll()
-
     const state = storage('todo-vue3',{
     // const state = reactive({
       todos: [
@@ -69,6 +69,8 @@ export default {
       newTodo: "",
       editedTodo: null
     });
+    const {addTodo,removeTodo} = useAddRemove(state)
+
     const remaining = computed(
       () => state.todos.filter(todo => !todo.completed).length
     );
@@ -83,22 +85,7 @@ export default {
       }
     });
 
-    function addTodo() {
-      var value = state.newTodo && state.newTodo.trim();
-      if (!value) {
-        return;
-      }
-      state.todos.push({
-        id: state.todos.length + 1,
-        title: value,
-        completed: false
-      });
-      state.newTodo = "";
-    }
-    function removeTodo(todo) {
-      var index = state.todos.indexOf(todo);
-      state.todos.splice(index, 1);
-    }
+
     function editTodo(todo) {
       state.beforeEditCache = todo.title;
       state.editedTodo = todo;
