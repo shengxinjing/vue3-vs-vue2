@@ -1,7 +1,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 export default function useMousePosition() {
-  const x = ref(0)
-  const y = ref(0)
+  const x = ref(10)
+  const y = ref(10)
 
   function update(e) {
     x.value = e.pageX

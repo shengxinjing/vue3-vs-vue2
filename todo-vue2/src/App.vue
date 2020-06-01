@@ -1,64 +1,70 @@
 <template>
-  <div class="app">
-    <input type="text" v-model="newTodo" @keyup.enter="addTodo" />
-    <div>
-      <input type="checkbox" v-model="allDone" /> Select All
-      <ul>
-        <li
-          v-for="todo in todos"
-          :key="todo.id"
-          :class="{completed: todo.completed, editing: todo == editedTodo}"
-        >
-          <div class="view">
-            <input type="checkbox" v-model="todo.completed" />
-            <label @dblclick="editTodo(todo)">{{todo.title}}</label>
-            <button @click="removeTodo(todo)">X</button>
-          </div>
-          <input
-            class="edit"
-            type="text"
-            v-model="todo.title"
-            v-todo-focus="todo == editedTodo"
-            @blur="doneEdit(todo)"
-            @keyup.enter="doneEdit(todo)"
-            @keyup.esc="cancelEdit(todo)"
-          />
-        </li>
-      </ul>
-      <div>
-        <span>
-          <strong v-text="remaining"></strong>
-          {{remaining}} left
+<section class="todoapp">
+      <header class="header">
+        <h1>Vue2 todos</h1>
+        <input class="new-todo"
+          placeholder="What needs to be done?"
+          v-model="newTodo"
+          @keyup.enter="addTodo">
+      </header>
+      <section class="main" v-show="todos.length" v-cloak>
+        <input class="toggle-all" type="checkbox" v-model="allDone">
+        <ul class="todo-list">
+          <li v-for="todo in todos"
+            class="todo"
+            :key="todo.id"
+            :class="{ completed: todo.completed, editing: todo == editedTodo }">
+            <div class="view">
+              <input class="toggle" type="checkbox" v-model="todo.completed">
+              <label @dblclick="editTodo(todo)">{{ todo.title }}</label>
+              <button class="destroy" @click="removeTodo(todo)"></button>
+            </div>
+            <input class="edit" type="text"
+              v-model="todo.title"
+              v-todo-focus="todo == editedTodo"
+              @blur="doneEdit(todo)"
+              @keyup.enter="doneEdit(todo)"
+              @keyup.esc="cancelEdit(todo)">
+          </li>
+        </ul>
+      </section>
+      <footer class="footer" v-show="todos.length" v-cloak>
+        <span class="todo-count">
+          <strong>{{ remaining }}</strong>  left
         </span>
-        <button @click="removeCompleted" v-show="todos.length > remaining">Clear completed</button>
-      </div>
-    </div>
-  </div>
+        <button class="clear-completed" @click="removeCompleted" v-show="todos.length > remaining">
+          Clear completed
+        </button>
+      </footer>
+    </section>
+
 </template>
 
 <script>
+
+import storage from './local'
+
 export default {
   data() {
     return {
-      todos: [
-        {
-          id: "1",
-          title: "吃饭",
-          completed: false
-        },
-        {
-          id: "2",
-          title: "睡觉",
-          completed: false
-        }
-      ],
+      todos:storage.get(),
+      // todos: [
+      //   {
+      //     id: "1",
+      //     title: "吃饭",
+      //     completed: false
+      //   },
+      //   {
+      //     id: "2",
+      //     title: "睡觉",
+      //     completed: false
+      //   }
+      // ],
       newTodo: "",
       editedTodo: null
     };
   },
 
-  // computed properties
-  // http://vuejs.org/guide/computed.html
   computed: {
     remaining: function() {
       return this.todos.filter(todo => !todo.completed).length;
@@ -89,16 +95,21 @@ export default {
         completed: false
       });
       this.newTodo = "";
+      storage.set(this.todos)
     },
 
     removeTodo: function(todo) {
       var index = this.todos.indexOf(todo);
       this.todos.splice(index, 1);
+      storage.set(this.todos)
+
     },
 
     editTodo: function(todo) {
       this.beforeEditCache = todo.title;
       this.editedTodo = todo;
+      storage.set(this.todos)
+
     },
 
     doneEdit: function(todo) {
@@ -110,6 +121,8 @@ export default {
       if (!todo.title) {
         this.removeTodo(todo);
       }
+      storage.set(this.todos)
+
     },
 
     cancelEdit: function(todo) {
@@ -119,6 +132,8 @@ export default {
 
     removeCompleted: function() {
       this.todos = this.todos.filter(todo => todo.completed);
+      storage.set(this.todos)
+
     }
   },
 
