@@ -35,6 +35,19 @@ app.use(async ctx=>{
     ctx.type = 'application/javascript'
     const content = fs.readFileSync(p,'utf-8')
     ctx.body = rewriteImport(content)
+  }else if(url.endsWith('.css')){
+    const p = path.resolve(__dirname,url.slice(1))
+    const file = fs.readFileSync(p,'utf-8')
+    const content = `
+    const css = "${file.replace(/\n/g,'')}"
+    let link = document.createElement('style')
+    link.setAttribute('type', 'text/css')
+    document.head.appendChild(link)
+    link.innerHTML = css
+    export default css
+    `
+    ctx.type = 'application/javascript'
+    ctx.body = content
   }else if(url.startsWith('/@modules/')){
     // 这是一个node_module里的东西
     const prefix = path.resolve(__dirname,'node_modules',url.replace('/@modules/',''))
@@ -73,3 +86,10 @@ app.use(async ctx=>{
 app.listen(3001, ()=>{
   console.log('听我口令，3001端口，起~~')
 })
+
+
+
+
+
+
+
