@@ -63,7 +63,6 @@ export default{
   list-style: none;
   margin:0;
   padding:0
-
 }
 .col-row:nth-child(2n) {
   background-color: #f8f8f8;
