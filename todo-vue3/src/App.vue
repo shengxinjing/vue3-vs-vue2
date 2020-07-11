@@ -100,7 +100,7 @@ export default {
       state.editedTodo = null;
       todo.title = todo.title.trim();
       if (!todo.title) {
-        state.removeTodo(todo);
+        removeTodo(todo);
       }
     }
 
