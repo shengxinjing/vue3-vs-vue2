@@ -1,7 +1,9 @@
 <template>
   <section class="todoapp">
-
-    <div class="modal" v-if="x<10||y<10"></div>
+    
+    <teleport to="#modal">
+      <div class="modal" v-if="x<10||y<10"></div>
+    </teleport>
       <header class="header" :class="{fixed:top>130}">
         <h1>Vue3 todos</h1>
         <input class="new-todo"
@@ -98,7 +100,7 @@ export default {
       state.editedTodo = null;
       todo.title = todo.title.trim();
       if (!todo.title) {
-        state.removeTodo(todo);
+        removeTodo(todo);
       }
     }
 
