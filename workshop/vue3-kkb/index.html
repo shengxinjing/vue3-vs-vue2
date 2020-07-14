@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app"></div>
+  <div id="btn">click</div>
+  <script src="./kkb-vue3.js"></script>
+  <script>
+    const root = document.getElementById('app')
+    const btn = document.getElementById('btn')
+
+    let obj = reactive({
+      name:'大圣',
+      age:18
+    })
+
+    let double = computed(()=>obj.age*2)
+    effect(()=>{
+      console.log('数据变了',obj.age)
+      root.innerHTML = `<h1>${obj.name}今年${obj.age}岁了,双倍${double.value}</h1>`
+    })
+
+    btn.addEventListener('click',()=>{
+      obj.age+=1
+    },false)
+  </script>
+</body>
+</html>
