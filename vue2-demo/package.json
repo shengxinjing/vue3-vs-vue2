@@ -13,7 +13,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
