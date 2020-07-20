@@ -14,7 +14,7 @@
     "@vue/cli-plugin-babel": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
     "@vue/compiler-sfc": "^3.0.0-beta.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "vue-cli-plugin-vue-next": "~0.1.2"
   },
   "browserslist": [
