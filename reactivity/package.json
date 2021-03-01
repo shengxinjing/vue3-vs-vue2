@@ -11,7 +11,7 @@
     "@vue/runtime-core": "^3.0.0-beta.12",
     "@vue/runtime-dom": "^3.0.0-beta.12",
     "core-js": "^3.6.4",
-    "three": "^0.116.1",
+    "three": "^0.125.0",
     "vue": "^3.0.0-beta.1"
   },
   "devDependencies": {
