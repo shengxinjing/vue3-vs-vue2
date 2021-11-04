@@ -82,6 +82,9 @@ export default {
         });
       }
     });
+    function removeTodo(e) {
+      state.todos = state.todos.filter(todo => e.id !== todo.id)
+    };
     function removeCompleted() {
       state.todos = state.todos.filter(todo => !todo.completed);
     }
@@ -90,7 +93,8 @@ export default {
     return {
       ...toRefs(state),remaining,allDone,top,
       x,y,top,
-      addTodo,removeCompleted
+      addTodo,removeCompleted,
+      removeTodo
     }
   }
 }
