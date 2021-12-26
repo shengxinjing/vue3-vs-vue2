@@ -81,8 +81,6 @@ const { createApp: originCa } = createRenderer({
         }, false)
       }
     }
-
-
   },
   createElement(type, isSVG, isCustom) {
     return {
